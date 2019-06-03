@@ -1,10 +1,15 @@
 'use strict';
-function createGreeting(name,age){
-  let yearOfBirth = 2019-age;
 
-  return `Hi, my name is Arpan and I\'m 23 years old.
-  I was born in ${yearOfBirth}.`;
+function getYearOfBirth(age){
+    return 2019-age;
 }
 
-console.log('hello');
+function createGreeting(name,age){
+  let yob = getYearOfBirth(age);
+
+  return `Hi, my name is ${name} and I\'m ${age} years old.
+  I was born in ${yob}.`;
+}
+
+console.log(createGreeting('hi',20));
 
