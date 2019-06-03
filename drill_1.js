@@ -7,18 +7,24 @@ function yearOfBirth(age){
     }
     return 2019-age;
 }
-
+/* 
 function getYearOfBirth(age){
     return 2019-age;
 }
-
+ */
 
 
 function createGreeting(name,age){
-  if(name === undefined, age===undefined){
-    throw new Error('Arguments not valid');
+  if(name === undefined || age===undefined){
+    throw new Error('Arguments not valid.');
   }
-  
+  if(typeof name !=='string' || typeof age !== 'number'){
+    throw new TypeError('Arguments are of wrong type.');
+  }
+  if(isNaN(age)){
+    throw new Error('Age is NaN.');
+  }
+
   let yob = yearOfBirth(age);
 
   return `Hi, my name is ${name} and I\'m ${age} years old.
@@ -26,7 +32,8 @@ function createGreeting(name,age){
 }
 
 try{
-    const greeting1=createGreeting('Arpan',23);
+    
+    const greeting1=createGreeting('Arpan', NaN);
 }
 catch(e){
     console.log(e.message);
